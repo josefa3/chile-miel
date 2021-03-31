@@ -40,3 +40,27 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5px;
+}
+.iconfacebook {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 1rem;
+  background: #3b5998;
+  // width: 18.125rem;
+  // height: 2.9rem;
+  color: white;
+  border-radius: 2px;
+}
+.fa-facebook {
+  margin-right: 1.5rem;
+  margin-left: 0.5rem;
+}
+button {
+  width: 18.125rem;
+  height: 2.9rem;
+}

@@ -1,11 +1,20 @@
 import React from "react";
 import { GoogleLogin } from "react-google-login";
+import FacebookLogin from "react-facebook-login";
 
 const SignIn = () => {
 	const responseGoogle = response => {
 		console.log(response); // me da el token de inicio de sesion
 		console.log(response.profileObj); // datos del perfil de usuario
 	};
+
+	const responseFacebook = response => {
+		console.log(response);
+	};
+
+	// const componentClicked = () => {
+	// 	alert("Evento Onclick");
+	// };
 
 	return (
 		<React.Fragment>
@@ -42,18 +51,31 @@ const SignIn = () => {
 					<button className="w-100 btn btn-lg btn-primary" type="submit">
 						Sign in
 					</button>
-					<GoogleLogin
-						clientId="131177827227-d2g0ek74b25sodlppijjs5oo4434h247.apps.googleusercontent.com"
-						buttonText="Iniciar Sesión"
-						// render={renderProps => (
-						// 	<button onClick={renderProps.onClick} disabled={renderProps.disabled}>
-						// 		This is my custom Google button
-						// 	</button>
-						// )} *** Esto es para poder personalizar el boton en css
-						onSuccess={responseGoogle}
-						onFailure={responseGoogle}
-						cookiePolicy={"single_host_origin"}
-					/>
+					<span className="login">
+						<GoogleLogin
+							clientId="131177827227-d2g0ek74b25sodlppijjs5oo4434h247.apps.googleusercontent.com"
+							buttonText="Iniciar Sesión"
+							// render={renderProps => (
+							// 	<button onClick={renderProps.onClick} disabled={renderProps.disabled}>
+							// 		This is my custom Google button
+							// 	</button>
+							// )} *** Esto es para poder personalizar el boton en css
+							onSuccess={responseGoogle}
+							onFailure={responseGoogle}
+							cookiePolicy={"single_host_origin"}
+						/>
+
+						<FacebookLogin
+							appId="167757811894250"
+							autoLoad={false}
+							fields="name,email,picture"
+							// onClick={componentClicked}
+							callback={responseFacebook}
+							textButton="Iniciar Sesión"
+							icon="fa-facebook"
+							cssClass="iconfacebook"
+						/>
+					</span>
 				</form>
 			</main>
 		</React.Fragment>
